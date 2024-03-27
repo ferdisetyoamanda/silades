@@ -1,14 +1,26 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
+import Navbar from "../../Components/Dashboard/Top";
+import Hero from "../../Components/Dashboard/Hero";
+import CardReport from "../../Components/Dashboard/CardReport";
 import Footer from "../../Components/Dashboard/Footer";
-import Navbar from "../../Components/Dashboard/Navbar";
+
+
+
 
 const PageDashboard = () => {
     return (
         <div className="main-content bg-gray-100 max-w-full">
             <Navbar />
-
-            <h1 className="text-2xl font-semibold mb-4">Selamat datang di Aplikasi Pelaporan Infrastruktur!</h1>
+            <Hero />
+            <div className="container mx-auto py-8 px-4">
+                <div className="grid grid-cols-1 md:flex lg:grid-cols-2 gap-2">
+                    <CardReport />
+                    
+                    
+                </div>
+            </div>
             <Footer />
         </div>
     );

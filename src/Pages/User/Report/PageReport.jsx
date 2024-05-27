@@ -11,7 +11,7 @@ const PageReport = () => {
     return (
         <div className="main-content bg-gray-100  h-screen">
             <Navbar />
-            <LocationComponent />
+            {/* <LocationComponent /> */}
 
             <Footer />
         </div>

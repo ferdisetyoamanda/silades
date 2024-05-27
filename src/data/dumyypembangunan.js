@@ -1,24 +1,25 @@
-export const dummyData = [
+export const dummyPembangunan = [
     {
         id: 1,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Diterima DPRD",
         date: "12 Juli 2021",
-        description: "jalan di Desa Cilame rusak parah dan meminta bantuan untuk memperbaikinya, karena jalan tersebut merupakan akses utama warga Desa Cilame.",
+        description: "Pembangunan",
         rtrw: "001/001",
         village: "Cilame",
         district: "Tanjung",
         process: "Proses",
         author: "Agus",
         gender: "Laki-laki",
+        pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
 
         
     },
     {
         id: 2,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 1",
         date: "1 Januari 2023",
         title: "Judul 1",
@@ -29,11 +30,12 @@ export const dummyData = [
         process: "Proses 1",
         author: "Amanda",
         gender: "Laki-laki",
+        pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
     },
     {
         id: 3,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 2",
         date: "2 Februari 2023",
         title: "Judul 2",
@@ -44,11 +46,12 @@ export const dummyData = [
         process: "Proses 2",
         author: "Agus",
         gender: "Laki-laki",
+        pdf: null,
     },
     {
         id: 4,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 3",
         date: "3 Maret 2023",
         title: "Judul 3",
@@ -63,7 +66,7 @@ export const dummyData = [
     {
         id: 5,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 4",
         date: "4 April 2023",
         title: "Judul 4",
@@ -78,7 +81,7 @@ export const dummyData = [
     {
         id: 6,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 5",
         date: "5 Mei 2023",
         title: "Judul 5",
@@ -93,7 +96,7 @@ export const dummyData = [
     {
         id: 7,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 6",
         date: "6 Juni 2023",
         title: "Judul 6",
@@ -108,7 +111,7 @@ export const dummyData = [
     {
         id: 8,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 7",
         date: "7 Juli 2023",
         title: "Judul 7",
@@ -123,7 +126,7 @@ export const dummyData = [
     {
         id: 9,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 8",
         date: "8 Agustus 2023",
         title: "Judul 8",
@@ -138,7 +141,7 @@ export const dummyData = [
     {
         id: 10,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 9",
         date: "9 September 2023",
         title: "Judul 9",
@@ -153,7 +156,7 @@ export const dummyData = [
     {
         id: 11,
         image: "https://akcdn.detik.net.id/visual/2020/07/15/ilustrasi-jalan-rusak-cnbc-indonesiamuhammad-sabki-1_169.jpeg?w=715&q=90",
-        classification: "Jalan Rusak Berat",
+        type: "Pembangunan",
         status: "Status 10",
         date: "10 Oktober 2023",
         title: "Judul 10",

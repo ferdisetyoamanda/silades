@@ -4,20 +4,27 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+
+import { user } from "../../data/user.js";
+
+
+// const user = {
+//   name: 'Tom Cooko',
+//   email: 'tom@example.com',
+//   imageUrl:
+//     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+// }
+
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Laporin', href: '#', current: false },
-  { name: 'Kelola Laporan', href: '#', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'Laporin', href: '/report', current: false },
+  { name: 'Kelola Laporan', href: '/kelola', current: false },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Sign out' },
 ]
 
 function classNames(...classes) {
@@ -25,16 +32,50 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  // const authToken = localStorage.getItem('authToken');
+  // const [name, setName] = useState('');
+  // const [isLoading, setIsLoading] = useState(false);
+  // useEffect(() => {
+  //   if (authToken) {
+  //     setIsLoading(true);
+  //     fetchUserData(authToken)
+  //       .then((userData) => {
+  //         if (userData) {
+  //           const { name } = userData;
+  //           setName(name);
+  //           localStorage.setItem('nama_pengguna', name);
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error('Kesalahan Permintaan API:', error.response.data.message);
+  //       })
+  //       .finally(() => setIsLoading(false));
+  //   }
+  // }, [authToken]);
+
+  const confirmLogout = () => {
+    Swal.fire({
+      title: 'Anda yakin ingin keluar?',
+      text: 'Anda akan keluar dari akun Anda.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Keluar',
+      cancelButtonText: 'Tidak',
+      cancelButtonColor: '#d33',
+      confirmButtonColor: '#3085d6',
+      backdrop: 'rgba(200, 200, 200, 0.4)',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Panggil fungsi logoutUser di sini jika pengguna menekan "Ya, Keluar"
+        // logoutUser();
+        // Kemudian, arahkan pengguna ke halaman login atau tindakan logout lainnya
+        // Misalnya:
+        window.location.href = '/login';
+      }
+    });
+  };
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
@@ -69,20 +110,11 @@ export default function Navbar() {
                             {item.name}
                           </a>
                         ))}
+                        
                       </div>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-4 flex items-center md:ml-6">
-                        {/* <button
-                        type="button"
-                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                      >
-                        <span className="absolute -inset-1.5" />
-                        <span className="sr-only">View notifications</span>
-                        <BellIcon className="h-6 w-6" aria-hidden="true" />
-                      </button> */}
-
-                        {/* Profile dropdown */}
                         <Menu as="div" className="relative ml-3">
                           <div>
                             <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -100,22 +132,18 @@ export default function Navbar() {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                           >
-                            <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                              {userNavigation.map((item) => (
-                                <Menu.Item key={item.name}>
-                                  {({ active }) => (
-                                    <a
-                                      href={item.href}
-                                      className={classNames(
-                                        active ? 'bg-gray-100' : '',
-                                        'block px-4 py-2 text-sm text-gray-700'
-                                      )}
-                                    >
-                                      {item.name}
-                                    </a>
-                                  )}
-                                </Menu.Item>
-                              ))}
+                            <Menu.Items className=" flex flex-col absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                              <Menu.Item className='text-center '>
+
+                                <Link to="/profile" className="hover:text-white hover:bg-blue-500 mx-2 rounded-sm">Profile {user.name}</Link>
+
+                              </Menu.Item>
+                              <Menu.Item className='text-center '>
+
+                                <button className="item hover:text-white hover:bg-blue-500 mx-2 rounded-sm" onClick={confirmLogout}>Keluar</button>
+
+                              </Menu.Item>
+
                             </Menu.Items>
                           </Transition>
                         </Menu>
@@ -164,19 +192,23 @@ export default function Navbar() {
                       <div className="text-base font-medium leading-none text-white">{user.name}</div>
                       <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
                     </div>
-                    
+
                   </div>
                   <div className="mt-3 px-2">
-                    {userNavigation.map((item) => (
-                      <Disclosure.Button
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                      >
-                        {item.name}
-                      </Disclosure.Button>
-                    ))}
+
+                    <Disclosure.Button
+                      key={user.name}
+
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                    >
+                      <Link to="/profile">Profile {user.name}</Link>
+                    </Disclosure.Button>
+                    <Disclosure.Button
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                    >
+                      <span onClick={confirmLogout}>Logout</span>
+                    </Disclosure.Button>
+
                   </div>
                 </div>
               </Disclosure.Panel>
